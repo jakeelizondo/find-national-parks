@@ -23,7 +23,9 @@ function handleUserSubmit() {
 
 function generateResults(targetStates, maxResults) {
   console.log('lets get results');
-  const npBaseUrl = `https://developer.nps.gov/api/v1/parks?api_key=Qg4XTSJD3TaUpJjX3m1l9m2mnwEd3wsnTycxmL9C&stateCode=${targetStates}&limit=${maxResults}`;
+  const npBaseUrl = `https://developer.nps.gov/api/v1/parks?api_key=Qg4XTSJD3TaUpJjX3m1l9m2mnwEd3wsnTycxmL9C&stateCode=${encodeURIComponent(
+    targetStates
+  )}&limit=${encodeURIComponent(maxResults)}`;
   console.log(npBaseUrl);
 
   fetch(npBaseUrl)
